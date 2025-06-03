@@ -75,7 +75,6 @@ Ensure the usage of the embedded Arial font complies with licensing terms. You c
 
 Author
 ------
-Created by: [Your Name or Alias]
-Date: June 2025
+Created by: SigmaGit1er
 Language: C++17
-Frameworks: SFML 2.x, cURL
+Frameworks: SFML 2.6, cURL
