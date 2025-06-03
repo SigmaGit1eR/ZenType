@@ -1,54 +1,81 @@
+ZenType - Typing Speed Trainer
+==============================
 
-# 🧘 ZenType
+Description
+-----------
+ZenType is a lightweight typing speed and accuracy training game built with C++, SFML, and cURL.
+It displays random words fetched from the internet, and the player must type them as fast and
+accurately as possible.
 
-**ZenType** is a minimalist C++ typing practice application designed to improve typing speed and accuracy with a clean and distraction-free interface.
+Press [SPACE] to start or pause the test. Press [F11] to toggle fullscreen.
 
-## ⚙️ Features
+Features
+--------
+- Dynamic word list loaded from GitHub on runtime
+- Word filtering (removes words shorter than 5 letters)
+- Random word shuffling for unique experience every time
+- Real-time stats:
+  - Accuracy (%)
+  - Typing speed (characters per second)
+  - Typed words count
+- SFML graphical interface with scalable fonts and window resizing
+- Font loaded directly from memory (Arial.ttf)
+- Fullscreen toggle with F11
+- Pause and resume with SPACE key
 
-- Simple and intuitive typing practice
-- Real-time accuracy and speed tracking
-- Customizable text prompts
-- Lightweight and easy to build
+Requirements
+------------
+- Windows OS
+- Internet connection (for word list download)
+- C++17 compatible compiler
+- Dependencies:
+  - SFML (Graphics, Window, System)
+  - libcurl
+  - arial.h (header containing embedded Arial.ttf as binary array)
 
-## 📁 Project Structure
+Controls
+--------
+- SPACE: Start / Pause the timer
+- F11: Toggle fullscreen mode
+- Any key: Type the letters of the current word
+- Close Button: Exit the game
 
-```
-ZenType/
-├── main.cpp           # Main program file
-├── ZenType.h          # Header file with class definitions
-├── ZenType.cpp        # Implementation of ZenType logic
-└── README.md          # This documentation file
-```
+Technical Details
+-----------------
+- Words are fetched from:
+  https://raw.githubusercontent.com/SigmaGit1eR/ZenType-Words/refs/heads/main/ZenType_Words.txt
+- Words are parsed by newline
+- All words <= 4 characters are removed
+- Word order is randomized using std::shuffle
+- Font is loaded using `font.loadFromMemory()` from an embedded binary
+- Performance and stats calculated using `sf::Clock` and character counters
 
-## 🚀 Build Instructions
+File Structure
+--------------
+- main.cpp: Main application logic
+- arial.h: Header with binary font data (arial_ttf, arial_ttf_len)
+- README.txt: This file
 
-1. Ensure you have a C++ compiler installed (GCC, Clang, MSVC).
-2. Compile the project:
+Compilation
+-----------
+Make sure to link against the following SFML and cURL libraries:
+- sfml-graphics
+- sfml-window
+- sfml-system
+- libcurl
 
-```bash
-g++ main.cpp ZenType.cpp -o ZenType -std=c++11
-```
+Example g++ command:
+g++ main.cpp -o ZenType -lsfml-graphics -lsfml-window -lsfml-system -lcurl
 
-3. Run the executable:
+Legal & License
+---------------
+This is a hobby/educational project.
 
-```bash
-./ZenType
-```
+Ensure the usage of the embedded Arial font complies with licensing terms. You can replace the font with your own if needed.
 
-## 🧪 Usage
-
-Run the program and follow the on-screen instructions to practice typing. The program will show your current typing speed and accuracy.
-
-## 📦 Dependencies
-
-- Standard C++ libraries
-
-## 📄 License
-
-This project currently does not have a specified license. Use it for personal or educational purposes. Contact the author for commercial use.
-
-## 👤 Author
-
-- GitHub: [SigmaGit1eR](https://github.com/SigmaGit1eR)
-
----
+Author
+------
+Created by: [Your Name or Alias]
+Date: June 2025
+Language: C++17
+Frameworks: SFML 2.x, cURL
